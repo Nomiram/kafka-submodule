@@ -28,17 +28,6 @@ func KafkaConsumer() *kafka.Reader {
 func KafkaRead(conn *kafka.Reader, ctx context.Context) (key string, value string) {
 	var n kafka.Message
 	var err error
-	topic := "my-topic-1"
-	partition := 0
-	// var conn *kafka.Reader
-
-	brokerAddress := []string{"kafka_0:9092", "kafka_1:9093", "kafka_2:9094"}
-	conn = kafka.NewReader(kafka.ReaderConfig{
-		Brokers: brokerAddress,
-		Topic:   topic,
-		// GroupID: "group-rating",
-		Partition: partition,
-	})
 	time.Sleep(time.Second * 1)
 	fmt.Println("reading")
 	for {
