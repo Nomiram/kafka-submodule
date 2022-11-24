@@ -3,6 +3,7 @@ package kafkahandlers
 import (
 	"context"
 	"fmt"
+	"time"
 
 	"github.com/segmentio/kafka-go"
 )
@@ -30,6 +31,7 @@ func KafkaWrite(w *kafka.Writer, key string, value string) {
 		)
 		if err != nil {
 			fmt.Println("failed to write messages:", err)
+			time.Sleep(time.Second * 2)
 		} else {
 			break
 		}
