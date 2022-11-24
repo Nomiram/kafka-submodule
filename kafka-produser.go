@@ -17,10 +17,6 @@ func KafkaProducer() *kafka.Writer {
 		Topic:    topic,
 		Balancer: &kafka.LeastBytes{},
 	}
-
-	// if err := w.Close(); err != nil {
-	// 	log.Fatal("failed to close writer:", err)
-	// }
 	return w
 }
 func KafkaWrite(w *kafka.Writer, key string, value string) {
